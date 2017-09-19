@@ -1,0 +1,54 @@
+<!-- extend from base layout -->
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+             data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a> </li>
+                <li><a href="register">Register</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Sign In</h1>
+        <form action="" method="post" name="login">
+            {{form.hidden_tag()}}
+            <p>
+                Please enter your user id:<br>
+                {{form.user_id(size=50)}}<br>
+                {% for error in form.errors.user_id %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </p>
+            <p>
+                Please enter your password:<br>
+                {{form.password(size=50)}}<br>
+                {% for error in form.errors.password %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </p>
+            <p>{{form.remember_me}} Remember Me</p>
+            <p><input type="submit" value="Sign In"></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
