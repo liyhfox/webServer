@@ -2,30 +2,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Register</h1>
-<form action="" method="post" name="register">
-    {{form.hidden_tag()}}
-    <p>
-        User id:<br>
-        {{form.user_id(size=50)}}<br>
-        {% for error in form.errors.user_id %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>
-    </p>
-    <p>
-        Password:<br>
-        {{form.password(size=50)}}<br>
-        {% for error in form.errors.password %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>
-    </p>
-    <p>
-        Confirm password:<br>
-        {{form.password2(size=50)}}<br>
-        {% for error in form.errors.password2 %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>
-    </p>
-    <p><input type="submit" value="Sign Up"></p>
-</form>
+<div class="container">
+    <div class="page-header">
+        <h1>Register</h1>
+        <form action="" method="post" name="register">
+            {{form.hidden_tag()}}
+            <p>
+                User id:<br>
+                {{form.user_id(size=50)}}<br>
+                {% for error in form.errors.user_id %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </p>
+            <p>
+                Password:<br>
+                {{form.password(size=50)}}<br>
+                {% for error in form.errors.password %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </p>
+            <p>
+                Confirm password:<br>
+                {{form.password2(size=50)}}<br>
+                {% for error in form.errors.password2 %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </p>
+            <p><input type="submit" value="Sign Up"></p>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
+
+

@@ -2,28 +2,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="" method="post" name="post">
-    {{form.hidden_tag()}}
-    <table>
-        <tr>
-            <td>Hi! Say something:</td>
-            <td>{{ form.body(size = 30, maxlength = 140) }}</td>
-            <td>
-            {% for error in form.errors.body %}
-            <span style="color: red;">[{{error}}]</span><br>
-            {% endfor %}
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Post!"></td>
-            <td></td>
-        </tr>
-    </table>
-</form>
-{% for post in posts %}
-<p>
-  {{post.author.user_id}} says: <b>{{post.body}}</b>
-</p>
-{% endfor %}
-{% endblock %}
+<div class="container">
+    <div class="page-header">
+        <form action="" method="post" name="post">
+            {{form.hidden_tag()}}
+            <table>
+                <tr>
+                    <td>Hi! Say something:</td>
+                    <td>{{ form.body(size = 30, maxlength = 140) }}</td>
+                    <td>
+                        {% for error in form.errors.body %}
+                        <span style="color: red;">[{{error}}]</span><br>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Post!"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+        {% for post in posts %}
+        <p>
+            {{post.author.user_id}} says: <b>{{post.body}}</b>
+        </p>
+        {% endfor %}
+        {% endblock %}
+    </div>
+</div>
